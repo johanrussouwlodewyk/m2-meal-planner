@@ -1,0 +1,11 @@
+{
+  "editor.colorDecorators": true,
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}

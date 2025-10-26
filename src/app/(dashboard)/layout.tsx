@@ -1,11 +1,13 @@
+import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
+import DashboardLayout from "./_components/dashboard-layout";
 
 type LayoutProps = {
   children: ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  return <>{children}</>;
+  return <DashboardLayout>{children}</DashboardLayout>;
 };
 
 export default Layout;
