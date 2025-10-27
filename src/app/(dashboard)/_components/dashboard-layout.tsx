@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
+import Link from "next/link";
 
 type RouteGroupType = {
   group: string;
@@ -75,7 +76,35 @@ const RouteGroup = ({ group, items }: RouteGroupProps) => {
           </div>
         </Button>
       </Collapsible.Trigger>
-      <Collapsible.Content forceMount></Collapsible.Content>
+      <Collapsible.Content forceMount>
+        <motion.div
+          className={`flex flex-col gap-2 ${!open ? "pointer-events-none" : ""}`}
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+        >
+          {items.map((item) => (
+            <Button
+              className="w-full justify-start font-normal"
+              variant="link"
+              asChild
+              key={item.href}
+            >
+              <Link
+                className={`flex items-center rounded-md px-5 py-1 transition-all ${
+                  pathname === item.href
+                    ? "bg-foreground/10 hover:bg-foreground/5"
+                    : "hover:bg-foreground/10"
+                }`}
+                href={item.href}
+              >
+                {item.icon}
+                <span className="text-sm">{item.label}</span>
+              </Link>
+            </Button>
+          ))}
+        </motion.div>
+      </Collapsible.Content>
     </Collapsible.Root>
   );
 };
@@ -114,9 +143,9 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </div>
             <Separator className="my-2" />
             <div className="mt-4">
-              <p>Route 1</p>
-              <p>Route 2</p>
-              <p>Route 3</p>
+              {ROUTE_GROUPS.map((routeGroup) => (
+                <RouteGroup {...routeGroup} key={routeGroup.group} />
+              ))}
             </div>
           </div>
         </Collapsible.Content>
