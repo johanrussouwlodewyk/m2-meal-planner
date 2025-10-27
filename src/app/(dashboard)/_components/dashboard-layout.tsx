@@ -25,6 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 type RouteGroupType = {
   group: string;
@@ -135,7 +136,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </Collapsible.Trigger>
       </Collapsible.Root>
       <div className="flex">
-        {/* Toggle Theme*/}
+        <ThemeToggle />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
