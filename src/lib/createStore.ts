@@ -35,3 +35,5 @@ const createStore = <T extends object>(
     }),
   );
 };
+
+export { createStore };
