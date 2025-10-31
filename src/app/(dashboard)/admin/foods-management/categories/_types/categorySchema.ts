@@ -10,12 +10,14 @@ const categorySchema = z.intersection(
   ]),
 );
 
-type CatergorySchema = z.infer<typeof categorySchema>;
+type CategorySchema = z.infer<typeof categorySchema>;
 
-const categoryDefauktValues: CatergorySchema = {
+const categoryDefaultValues: CategorySchema = {
   action: "create",
   name: "",
 };
+
+export { categorySchema, categoryDefaultValues, type CategorySchema };
 
 /*
 type BaseProduct = {
