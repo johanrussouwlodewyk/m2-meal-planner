@@ -6,20 +6,20 @@ type State = {
 };
 
 type Actions = {
-  updateSelectCategoryId: (id: State["selectedCategoryId"]) => void;
-  updatecCategoryDialogOpen: (is: State["categoryDialogOpen"]) => void;
+  updateSelectedCategoryId: (id: State["selectedCategoryId"]) => void;
+  updateCategoryDialogOpen: (is: State["categoryDialogOpen"]) => void;
 };
 type Store = State & Actions;
 
 const useCategoriesStore = createStore<Store>(
   (set) => ({
     selectedCategoryId: null,
-    updateSelectCategoryId: (id) =>
+    updateSelectedCategoryId: (id) =>
       set((state) => {
         state.selectedCategoryId = id;
       }),
     categoryDialogOpen: false,
-    updatecCategoryDialogOpen: (is) =>
+    updateCategoryDialogOpen: (is) =>
       set((state) => {
         state.categoryDialogOpen = is;
       }),
