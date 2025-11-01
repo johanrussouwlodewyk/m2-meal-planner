@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { useCategories } from "../_services/use-category-queries";
 import { useDeleteCategory } from "../_services/use-catergory-mutations";
 import { Edit, Trash } from "lucide-react";
-import { alert } from "@/lib/use-global-store";
+import { alert } from "@/lib/useGlobalStore";
 import { useCategoriesStore } from "../_libs/use-category-store";
 import { CategoryCardsSkeleton } from "./category-cards-skeleton";
-import { NoItemsFound } from "@/components/no-tems-found";
+import { NoItemsFound } from "@/components/no-items-found";
 
 const CategoryCards = () => {
   const { updateSelectedCategoryId, updateCategoryDialogOpen } =
