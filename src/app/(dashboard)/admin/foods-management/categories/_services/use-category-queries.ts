@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCategories, getCategory } from "./categoryQueries";
 import { useCategoriesStore } from "../_libs/use-category-store";
 
-const useCatergories = () => {
+const useCategories = () => {
   return useQuery({
     queryKey: ["categories"],
     queryFn: getCategories,
@@ -16,4 +16,4 @@ const useCategory = () => {
     enabled: !!selectedCategoryId,
   });
 };
-export { useCatergories, useCategory };
+export { useCategories, useCategory };
